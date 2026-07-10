@@ -1,0 +1,118 @@
+{% extends "components/base.html" %}
+
+{% block title %}{{ job.job_title }}{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card shadow">
+
+<div class="card-body p-5">
+
+<h2>{{ job.job_title }}</h2>
+
+<h5 class="text-primary">
+
+{{ job.company_name }}
+
+</h5>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<p><strong>Category :</strong> {{ job.category_name }}</p>
+
+<p><strong>Location :</strong> {{ job.location }}</p>
+
+<p><strong>Salary :</strong> {{ job.salary }}</p>
+
+<p><strong>Experience :</strong> {{ job.experience }}</p>
+
+</div>
+
+<div class="col-md-6">
+
+<p><strong>Job Type :</strong> {{ job.job_type }}</p>
+
+<p><strong>Deadline :</strong> {{ job.deadline }}</p>
+
+{% if job.website %}
+
+<p>
+
+<strong>Website :</strong>
+
+<a href="{{ job.website }}" target="_blank">
+
+Visit Company
+
+</a>
+
+</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+<hr>
+
+<h4>Job Description</h4>
+
+<p>
+
+{{ job.description }}
+
+</p>
+
+<hr>
+
+<h4>About Company</h4>
+
+<p>
+
+{{ job.company_description }}
+
+</p>
+
+<br>
+
+{% if session.get("user_id") %}
+
+<a href="/apply/{{ job.id }}"
+class="btn btn-success btn-lg">
+
+Apply Now
+
+</a>
+
+{% else %}
+
+<a href="/login"
+class="btn btn-primary btn-lg">
+
+Login to Apply
+
+</a>
+
+{% endif %}
+
+<a href="/jobs"
+class="btn btn-outline-secondary btn-lg">
+
+Back to Jobs
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

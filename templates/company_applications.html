@@ -1,0 +1,158 @@
+{% extends "components/base.html" %}
+
+{% block title %}Applicants{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">
+
+Applicants
+
+</h2>
+
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Candidate</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Resume</th>
+<th>Status</th>
+<th>Applied On</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for application in applications %}
+
+<tr>
+
+<td>{{ application.full_name }}</td>
+
+<td>{{ application.email }}</td>
+
+<td>{{ application.phone }}</td>
+
+<td>
+
+{% if application.resume %}
+
+<a
+href="{{ url_for('static', filename='uploads/resumes/' + application.resume) }}"
+target="_blank"
+class="btn btn-info btn-sm">
+
+View Resume
+
+</a>
+
+{% else %}
+
+<span class="text-muted">
+
+No Resume
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if application.application_status=="Pending" %}
+
+<span class="badge bg-warning text-dark">
+
+Pending
+
+</span>
+
+{% elif application.application_status=="Shortlisted" %}
+
+<span class="badge bg-success">
+
+Shortlisted
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+Rejected
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{{ application.applied_at }}
+
+</td>
+
+<td>
+
+{% if application.application_status == "Pending" %}
+
+<a href="/shortlist-application/{{ application.id }}"
+   class="btn btn-success btn-sm">
+
+    Shortlist
+
+</a>
+
+<a href="/reject-application/{{ application.id }}"
+   class="btn btn-danger btn-sm">
+
+    Reject
+
+</a>
+
+{% elif application.application_status == "Shortlisted" %}
+
+<span class="badge bg-success fs-6">
+
+✓ Shortlisted
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger fs-6">
+
+✗ Rejected
+
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

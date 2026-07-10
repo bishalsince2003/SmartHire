@@ -1,0 +1,45 @@
+{% extends "components/base.html" %}
+
+{% block title %}Saved Jobs{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">Saved Jobs</h2>
+
+<table class="table table-bordered">
+
+<thead>
+
+<tr>
+
+<th>Job</th>
+
+<th>Company</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for job in jobs %}
+
+<tr>
+
+<td>{{ job.job_title }}</td>
+
+<td>{{ job.company_name }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

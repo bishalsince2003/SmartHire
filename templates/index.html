@@ -1,0 +1,759 @@
+{% extends 'components/base.html' %}
+
+{% block title %}
+Home | SmartHire
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section" data-aos="fade-up">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left -->
+
+            <div class="col-lg-6">
+
+                <span class="badge bg-primary mb-3 px-3 py-2">
+                    🚀 Trusted by 500+ Companies
+                </span>
+
+                <h1 class="hero-title">
+
+                    Find Your
+
+                    <span>Dream Job</span>
+
+                    With SmartHire
+
+                </h1>
+
+                <p class="hero-text">
+
+                    Search thousands of verified jobs from leading companies.
+                    Build your career with confidence.
+
+                </p>
+
+                <!-- Search -->
+
+                <div class="search-box shadow">
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Search jobs, skills or company">
+
+                    <button class="btn btn-primary">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="mt-4">
+
+                    <a href="/jobs"
+   class="btn btn-primary btn-lg me-3">
+
+    <i class="fa-solid fa-briefcase me-2"></i>
+
+    Explore Jobs
+
+</a>
+
+                    <a href="/company-register"
+   class="btn btn-outline-dark btn-lg">
+
+    Post a Job
+
+</a>
+
+                </div>
+
+                <!-- Stats -->
+
+                <div class="row mt-5">
+
+                    <div class="col-4">
+
+                        <h3>500+</h3>
+
+                        <p>Jobs</p>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <h3>120+</h3>
+
+                        <p>Companies</p>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <h3>4000+</h3>
+
+                        <p>Candidates</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+
+            <div class="col-lg-6 text-center">
+
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900"
+                     class="img-fluid hero-image">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+     FEATURED CATEGORIES
+=========================== -->
+
+<section class="categories py-5" data-aos="fade-up">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Popular Job Categories
+            </h2>
+
+            <p class="text-muted">
+                Explore opportunities across multiple industries.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    <h5>Software Developer</h5>
+
+                    <p>245 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    <h5>Artificial Intelligence</h5>
+
+                    <p>82 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h5>Data Science</h5>
+
+                    <p>156 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-cloud"></i>
+
+                    <h5>Cloud Computing</h5>
+
+                    <p>74 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h5>Cyber Security</h5>
+
+                    <p>93 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-palette"></i>
+
+                    <h5>UI / UX Design</h5>
+
+                    <p>58 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-bullhorn"></i>
+
+                    <h5>Digital Marketing</h5>
+
+                    <p>110 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+                <div class="category-card">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <h5>Database Engineer</h5>
+
+                    <p>67 Jobs Available</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+     FEATURED JOBS
+=========================== -->
+
+<section class="featured-jobs py-5" data-aos="fade-up">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Featured Jobs
+            </h2>
+
+            <p class="text-muted">
+                Discover the latest opportunities from top companies.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+{% for job in featured_jobs %}
+
+<div class="col-lg-4">
+
+    <div class="job-card">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <div class="company-logo">
+
+                {{ job.company_name[0] }}
+
+            </div>
+
+            <i class="fa-regular fa-bookmark save-job"></i>
+
+        </div>
+
+        <h5 class="mt-4">
+
+            {{ job.job_title }}
+
+        </h5>
+
+        <p class="company-name">
+
+            {{ job.company_name }}
+
+        </p>
+
+        <div class="job-info">
+
+            <span>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                {{ job.location }}
+
+            </span>
+
+            <span>
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                {{ job.experience }}
+
+            </span>
+
+        </div>
+
+        <div class="job-info mt-2">
+
+            <span>
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                {{ job.salary }}
+
+            </span>
+
+            <span class="badge bg-success">
+
+                {{ job.job_type }}
+
+            </span>
+
+        </div>
+
+        <div class="d-grid gap-2 mt-4">
+
+            <a href="/job/{{ job.id }}"
+               class="btn btn-outline-dark">
+
+                View Details
+
+            </a>
+
+            {% if session.get("user_id") %}
+
+                {% if job.id in applied_jobs %}
+
+                    <button class="btn btn-success" disabled>
+
+                        ✓ Applied
+
+                    </button>
+
+                {% else %}
+
+                    <a href="/apply/{{ job.id }}"
+                       class="btn btn-primary">
+
+                        Apply Now
+
+                    </a>
+
+                {% endif %}
+
+            {% else %}
+
+                <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal">
+
+                    Apply Now
+
+                </button>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+    </div>
+
+</section>
+<div class="modal fade" id="loginModal"></div>
+
+<!-- ==========================
+     WHY CHOOSE US
+=========================== -->
+
+<section class="why-us py-5" data-aos="fade-up">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">Why Choose SmartHire?</h2>
+
+            <p class="text-muted">
+                Everything you need to build your career in one place.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fa-solid fa-user-check"></i>
+                    <h4>Verified Companies</h4>
+                    <p>Apply only to trusted employers with verified job listings.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h4>Quick Apply</h4>
+                    <p>Submit applications in just a few clicks.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h4>Career Growth</h4>
+                    <p>Track your applications and discover better opportunities.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+     HOW IT WORKS
+=========================== -->
+
+<section class="how-it-works py-5" data-aos="fade-up">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                How SmartHire Works
+            </h2>
+
+            <p class="text-muted">
+                Start your career journey in just three simple steps.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    <h4>Create Account</h4>
+
+                    <p>
+                        Register as a candidate and complete your professional profile.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <h4>Search Jobs</h4>
+
+                    <p>
+                        Browse thousands of verified jobs using smart filters.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    <h4>Apply & Get Hired</h4>
+
+                    <p>
+                        Apply instantly and track your application status.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+     TESTIMONIALS
+=========================== -->
+
+<section class="testimonials py-5" data-aos="fade-up">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                What Our Users Say
+            </h2>
+
+            <p class="text-muted">
+                Thousands of professionals trust SmartHire for their career growth.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Testimonial 1 -->
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <div class="profile">
+
+                        <div class="avatar">
+                            R
+                        </div>
+
+                        <div>
+
+                            <h5>Rahul Sharma</h5>
+
+                            <small>Software Engineer</small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <p>
+
+                        SmartHire made my job search incredibly simple.
+                        I received interview calls within a week.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Testimonial 2 -->
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <div class="profile">
+
+                        <div class="avatar">
+                            P
+                        </div>
+
+                        <div>
+
+                            <h5>Priya Singh</h5>
+
+                            <small>UI/UX Designer</small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <p>
+
+                        The interface is clean, responsive and very easy
+                        to use. Highly recommended.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Testimonial 3 -->
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <div class="profile">
+
+                        <div class="avatar">
+                            A
+                        </div>
+
+                        <div>
+
+                            <h5>Amit Verma</h5>
+
+                            <small>Data Analyst</small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+
+                    </div>
+
+                    <p>
+
+                        I found my first internship through SmartHire.
+                        The application process was smooth.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+     NEWSLETTER
+=========================== -->
+
+<section class="newsletter py-5" data-aos="zoom-in">
+
+    <div class="container">
+
+        <div class="newsletter-box">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-7">
+
+                    <h2>
+                        Stay Updated with New Opportunities
+                    </h2>
+
+                    <p>
+                        Subscribe to receive the latest job openings,
+                        interview tips, and career guidance directly in your inbox.
+                    </p>
+
+                </div>
+
+                <div class="col-lg-5">
+
+                    <form class="newsletter-form">
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Enter your email">
+
+                        <button class="btn btn-light">
+                            Subscribe
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

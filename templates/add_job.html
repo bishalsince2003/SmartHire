@@ -1,0 +1,75 @@
+{% extends "components/base.html" %}
+
+{% block title %}Add Job{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card shadow p-4">
+
+<h2>Add Job</h2>
+
+<form method="POST">
+
+<div class="mb-3">
+<label>Job Title</label>
+<input type="text" class="form-control" name="job_title" required>
+</div>
+
+<div class="mb-3">
+<label>Company</label>
+
+<select class="form-select" name="company_id">
+
+{% for company in companies %}
+
+<option value="{{ company.id }}">
+{{ company.company_name }}
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<div class="mb-3">
+
+<label>Category</label>
+
+<select class="form-select" name="category_id">
+
+{% for category in categories %}
+
+<option value="{{ category.id }}">
+{{ category.category_name }}
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<div class="mb-3">
+<label>Location</label>
+<input type="text" class="form-control" name="location" required>
+</div>
+
+<div class="mb-3">
+<label>Salary</label>
+<input type="text" class="form-control" name="salary" required>
+</div>
+
+<button class="btn btn-success">
+Add Job
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

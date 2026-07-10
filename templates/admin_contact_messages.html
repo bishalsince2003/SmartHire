@@ -1,0 +1,86 @@
+{% extends "components/base.html" %}
+
+{% block title %}Contact Messages{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2 class="mb-4">Contact Messages</h2>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for message in messages %}
+
+                <tr>
+
+                    <td>{{ message.id }}</td>
+
+                    <td>{{ message.name }}</td>
+
+                    <td>{{ message.email }}</td>
+
+                    <td>{{ message.subject }}</td>
+
+                    <td style="max-width:350px;">
+                        {{ message.message }}
+                    </td>
+
+                    <td>{{ message.created_at }}</td>
+
+                    <td>
+
+    <a href="mailto:{{ message.email }}"
+       class="btn btn-success btn-sm">
+
+        <i class="fa-solid fa-envelope"></i>
+
+        Reply
+
+    </a>
+
+    <a href="/delete-contact-message/{{ message.id }}"
+       class="btn btn-danger btn-sm"
+       onclick="return confirm('Delete this message?')">
+
+        <i class="fa-solid fa-trash"></i>
+
+        Delete
+
+    </a>
+
+</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

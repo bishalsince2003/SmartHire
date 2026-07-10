@@ -1,0 +1,48 @@
+{% extends "components/base.html" %}
+
+{% block title %}Edit Job{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card shadow p-4">
+
+<h2>Edit Job</h2>
+
+<form method="POST">
+
+<div class="mb-3">
+<label>Job Title</label>
+<input type="text" class="form-control"
+name="job_title"
+value="{{ job.job_title }}">
+</div>
+
+<div class="mb-3">
+<label>Location</label>
+<input type="text" class="form-control"
+name="location"
+value="{{ job.location }}">
+</div>
+
+<div class="mb-3">
+<label>Salary</label>
+<input type="text" class="form-control"
+name="salary"
+value="{{ job.salary }}">
+</div>
+
+<button class="btn btn-primary">
+
+Update Job
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "components/base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card shadow p-4">
+
+<h2>My Profile</h2>
+
+<hr>
+
+<p><strong>Name:</strong> {{ user.full_name }}</p>
+
+<p><strong>Email:</strong> {{ user.email }}</p>
+
+<p><strong>Phone:</strong> {{ user.phone }}</p>
+
+<p>
+
+<strong>Resume:</strong>
+
+<a href="/static/uploads/resumes/{{ user.resume }}" target="_blank">
+
+View Resume
+
+</a>
+
+</p>
+
+<p><strong>Role:</strong> {{ user.role }}</p>
+
+<a href="/edit-profile" class="btn btn-warning">
+Edit Profile
+</a>
+
+<a href="/change-password" class="btn btn-secondary">
+Change Password
+</a>
+</div>
+
+</div>
+
+{% endblock %}

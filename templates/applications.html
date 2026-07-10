@@ -1,0 +1,49 @@
+{% extends "components/base.html" %}
+
+{% block title %}My Applications{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">My Applications</h2>
+
+<table class="table table-bordered shadow">
+
+<thead>
+
+<tr>
+
+<th>Job</th>
+
+<th>Company</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for app in applications %}
+
+<tr>
+
+<td>{{ app.job_title }}</td>
+
+<td>{{ app.company_name }}</td>
+
+<td>{{ app.application_status }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends "components/base.html" %}
+
+{% block title %}Manage Users{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">Manage Users</h2>
+
+<form class="mb-4">
+
+<div class="row">
+
+<div class="col-md-10">
+
+<input
+type="text"
+name="search"
+class="form-control"
+placeholder="Search User">
+
+</div>
+
+<div class="col-md-2">
+
+<button class="btn btn-primary w-100">
+
+Search
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+<table class="table table-bordered table-hover">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Resume</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for user in users %}
+
+<tr>
+
+<td>{{ user.id }}</td>
+
+<td>{{ user.full_name }}</td>
+
+<td>{{ user.email }}</td>
+
+<td>{{ user.phone }}</td>
+
+<td>
+
+{% if user.resume %}
+
+<a
+href="/static/uploads/resumes/{{ user.resume }}"
+target="_blank">
+
+View
+
+</a>
+
+{% else %}
+
+-
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a
+href="/delete-user/{{ user.id }}"
+class="btn btn-danger btn-sm">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "components/base.html" %}
+
+{% block title %}My Jobs{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">
+
+My Jobs
+
+</h2>
+
+<table class="table table-bordered table-hover">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Job</th>
+<th>Location</th>
+<th>Status</th>
+<th>Applications</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for job in jobs %}
+
+<tr>
+
+<td>{{ job.job_title }}</td>
+
+<td>{{ job.location }}</td>
+
+<td>
+
+{% if job.status=="Active" %}
+
+<span class="badge bg-success">
+
+Approved
+
+</span>
+
+{% elif job.status=="Pending" %}
+
+<span class="badge bg-warning text-dark">
+
+Pending
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+Rejected
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="/company-applications/{{ job.id }}"
+class="btn btn-primary btn-sm">
+
+View Applicants
+
+</a>
+
+</td>
+
+<td>
+
+<a href="/edit-job/{{ job.id }}"
+class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+<a href="/delete-job/{{ job.id }}"
+class="btn btn-danger btn-sm">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

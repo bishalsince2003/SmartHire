@@ -1,0 +1,106 @@
+{% extends "components/base.html" %}
+
+{% block title %}{{ company.company_name }}{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="mb-5">
+
+        <h2>{{ company.company_name }}</h2>
+
+        <p class="text-muted">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            {{ company.location }}
+
+        </p>
+
+        {% if company.website %}
+
+        <a href="{{ company.website }}"
+           target="_blank"
+           class="btn btn-outline-primary">
+
+            Visit Website
+
+        </a>
+
+        {% endif %}
+
+    </div>
+
+    <h4 class="mb-4">
+
+        Open Positions
+
+    </h4>
+
+    <div class="row">
+
+        {% for job in jobs %}
+
+        <div class="col-md-6 mb-4">
+
+            <div class="card shadow h-100">
+
+                <div class="card-body">
+
+                    <h5>{{ job.job_title }}</h5>
+
+                    <p>
+
+                        <strong>Category:</strong>
+
+                        {{ job.category_name }}
+
+                    </p>
+
+                    <p>
+
+                        <strong>Location:</strong>
+
+                        {{ job.location }}
+
+                    </p>
+
+                    <p>
+
+                        <strong>Salary:</strong>
+
+                        {{ job.salary }}
+
+                    </p>
+
+                    <a href="/jobs"
+                       class="btn btn-primary">
+
+                        View & Apply
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% if jobs|length == 0 %}
+
+    <div class="alert alert-info">
+
+        No active jobs available for this company.
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

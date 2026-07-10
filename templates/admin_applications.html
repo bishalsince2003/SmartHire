@@ -1,0 +1,78 @@
+{% extends "components/base.html" %}
+
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">Job Applications</h2>
+
+<table class="table table-bordered table-hover">
+
+<thead>
+
+<tr>
+
+<th>User</th>
+<th>Job</th>
+<th>Company</th>
+<th>Status</th>
+
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for app in applications %}
+
+<tr>
+
+<td>{{ app.full_name }}</td>
+<td>{{ app.job_title }}</td>
+<td>{{ app.company_name }}</td>
+<td>{{ app.application_status }}</td>
+
+<td>
+
+{% if application.application_status=="Pending" %}
+
+<span class="badge bg-warning text-dark">
+
+Pending
+
+</span>
+
+{% elif application.application_status=="Shortlisted" %}
+
+<span class="badge bg-success">
+
+Shortlisted
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+Rejected
+
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

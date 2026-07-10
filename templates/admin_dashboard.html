@@ -1,0 +1,107 @@
+{% extends "components/base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">Admin Dashboard</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="card shadow p-4 text-center">
+
+<h3>{{ total_users }}</h3>
+
+<p>Users</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow p-4 text-center">
+
+<h3>{{ total_jobs }}</h3>
+
+<p>Jobs</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow p-4 text-center">
+
+<h3>{{ total_applications }}</h3>
+
+<p>Applications</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow p-4 text-center">
+
+<h3>{{ total_companies }}</h3>
+
+<p>Companies</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row g-3">
+
+    <div class="col-md-3">
+        <a href="/admin-jobs" class="btn btn-primary w-100 py-3">
+            Manage Jobs
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/companies" class="btn btn-success w-100 py-3">
+            Manage Companies
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/admin-users" class="btn btn-warning w-100 py-3">
+            Manage Users
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/admin-applications" class="btn btn-danger w-100 py-3">
+            Monitor Applications
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/job-requests" class="btn btn-info w-100 py-3">
+            Job Requests
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/admin-contact-messages" class="btn btn-dark w-100 py-3">
+            Contact Messages
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

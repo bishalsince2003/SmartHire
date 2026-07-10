@@ -1,0 +1,80 @@
+{% extends "components/base.html" %}
+
+{% block title %}Companies{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold">Our Hiring Companies</h2>
+
+        <p class="text-muted">
+            Explore companies actively hiring through SmartHire.
+        </p>
+
+    </div>
+
+    <div class="row">
+
+        {% for company in companies %}
+
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card shadow h-100">
+
+                <div class="card-body text-center">
+
+                    {% if company.company_logo %}
+
+                    <img src="{{ url_for('static', filename='uploads/' + company.company_logo) }}"
+                         style="height:80px;object-fit:contain;"
+                         class="mb-3">
+
+                    {% else %}
+
+                    <i class="fa-solid fa-building fa-3x text-primary mb-3"></i>
+
+                    {% endif %}
+
+                    <h4>{{ company.company_name }}</h4>
+
+                    <p class="text-muted">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        {{ company.location }}
+
+                    </p>
+
+                    {% if company.description %}
+
+                    <p>
+
+                        {{ company.description[:120] }}...
+
+                    </p>
+
+                    {% endif %}
+
+                    <a href="/company/{{ company.id }}"
+                       class="btn btn-primary">
+
+                        View Jobs
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

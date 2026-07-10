@@ -1,0 +1,187 @@
+{% extends "components/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">
+
+Welcome,
+
+{{ name }} 👋
+
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="card shadow text-center p-4">
+
+<h2>{{ applied_jobs }}</h2>
+
+<p>Total Applications</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow text-center p-4">
+
+<h2>{{ pending_jobs }}</h2>
+
+<p>Pending</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow text-center p-4">
+
+<h2>{{ shortlisted_jobs }}</h2>
+
+<p>Shortlisted</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow text-center p-4">
+
+<h2>{{ rejected_jobs }}</h2>
+
+<p>Rejected</p>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<h3 class="mb-4">
+
+Recent Applications
+
+</h3>
+
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Job</th>
+
+<th>Company</th>
+
+<th>Status</th>
+
+<th>Applied On</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for app in recent_applications %}
+
+<tr>
+
+<td>{{ app.job_title }}</td>
+
+<td>{{ app.company_name }}</td>
+
+<td>
+
+{% if app.application_status=="Pending" %}
+
+<span class="badge bg-warning text-dark">
+
+Pending
+
+</span>
+
+{% elif app.application_status=="Shortlisted" %}
+
+<span class="badge bg-success">
+
+Shortlisted
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+Rejected
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{{ app.applied_at }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="mt-5">
+
+<a href="/jobs"
+class="btn btn-primary">
+
+Browse Jobs
+
+</a>
+
+<a href="/applications"
+class="btn btn-success">
+
+My Applications
+
+</a>
+
+<a href="/profile"
+class="btn btn-warning">
+
+My Profile
+
+</a>
+
+<a href="/logout"
+class="btn btn-danger">
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}

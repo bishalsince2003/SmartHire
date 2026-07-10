@@ -1,0 +1,51 @@
+{% extends "components/base.html" %}
+
+{% block title %}Edit Company{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card p-4 shadow">
+
+<h3>Edit Company</h3>
+
+<form method="POST">
+
+<div class="mb-3">
+
+<label>Company Name</label>
+
+<input
+type="text"
+name="company_name"
+class="form-control"
+value="{{ company.company_name }}">
+
+</div>
+
+<div class="mb-3">
+
+<label>Location</label>
+
+<input
+type="text"
+name="location"
+class="form-control"
+value="{{ company.location }}">
+
+</div>
+
+<button class="btn btn-primary">
+
+Update Company
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}
